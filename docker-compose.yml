@@ -38,6 +38,14 @@ services:
             - ./nginx/conf.d/:/etc/nginx/conf.d/
         networks:
             - app-network
+    #PhpMyadmin
+    phpmyadmin:
+      image: phpmyadmin:latest
+      container_name: phpmyadmin
+      ports:
+        - 8080:80
+      networks:
+        - app-network
 
 networks:
     app-network:
