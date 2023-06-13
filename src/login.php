@@ -14,7 +14,7 @@
 
 </head>
 <?php 
-include "config.php";
+include "conexao.php";
 ?>
 <body>
 <div class="wrapper fadeInDown">
@@ -30,10 +30,19 @@ include "config.php";
     </div>
 
     <!-- Login Form -->
-    <form>
+    <form class="form-signin" method="POST" action="dao/verifica_login.php">
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário" required autofocus>
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha" required>
       <input type="submit" class="fadeIn fourth" value="Logar">
+  
+        <?php 
+        if(isset($_GET['erro'])){
+          echo '<div class="alert alert-danger error">';
+          echo "Login ou senha inválidos!";
+          echo '</div>';
+        }
+
+        ?>
     </form>
 
     <!-- Remind Passowrd -->
